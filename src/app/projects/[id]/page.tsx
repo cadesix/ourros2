@@ -10,7 +10,11 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function Project({ params }: { params: { id: string } }) {
+export default async function Project({ 
+  params 
+}: { 
+  params: { id: string } 
+}) {
   const project = projects.find((p) => p.id === params.id)
   
   if (!project) {
@@ -22,32 +26,27 @@ export default function Project({ params }: { params: { id: string } }) {
       <Navigation />
       <div className={styles.projectContainer}>
         <div className={styles.projectContent}>
-          <h1 className={styles.title}>
-            <span className={styles.artist}>{project.artist}</span>
-            <br />
-            {project.title}
-          </h1>
-          
-          {project.videoId ? (
+          {project.type === 'video' && project.videoUrl ? (
             <div className={styles.videoWrapper}>
               <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${project.videoId}`}
+                src={project.videoUrl}
                 title={`${project.title} by ${project.artist}`}
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
           ) : (
-            <Image
-              src={project.image}
-              alt={`${project.title} by ${project.artist}`}
-              width={1200}
-              height={675}
-              className={styles.projectImage}
-              priority
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                src={project.image}
+                alt={`${project.title} by ${project.artist}`}
+                width={1200}
+                height={675}
+                className={styles.projectImage}
+                priority
+              />
+            </div>
           )}
         </div>
       </div>

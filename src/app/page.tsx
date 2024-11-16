@@ -7,7 +7,7 @@ export default function Home() {
       <Navigation />
       <ProjectGrid />
       <div>
-        <div className="text-block-9">© OURROS LLC {new Date().getFullYear()} • 1136</div>
+        <div className="footer">© OURROS LLC {new Date().getFullYear()} • 1136</div>
       </div>
     </main>
   )

@@ -1,0 +1,46 @@
+.pressLinks {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 17.6vh;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.linkWrapper {
+  margin-bottom: 24px;
+}
+
+.linkWrapper:last-child {
+  margin-bottom: 0;
+}
+
+.pressLinks a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.pressLinks a:hover {
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 991px) {
+  .pressLinks {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .pressLinks {
+    margin-top: 10.6vh;
+    padding-left: 35px;
+    padding-right: 35px;
+    line-height: 24px;
+  }
+  
+  .linkWrapper {
+    margin-bottom: 16px;
+  }
+} 

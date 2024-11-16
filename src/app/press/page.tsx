@@ -31,15 +31,15 @@ export default function Press() {
       <div>
         <div className={styles.pressLinks}>
           {pressLinks.map((link) => (
-            <a 
-              key={link.url} 
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.title}
-              <br /><br />
-            </a>
+            <div key={link.url} className={styles.linkWrapper}>
+              <a 
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.title}
+              </a>
+            </div>
           ))}
         </div>
       </div>
