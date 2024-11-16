@@ -1,0 +1,32 @@
+.aboutText {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 27.6vh;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.aboutText a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.aboutText a:hover {
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 991px) {
+  .aboutText {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .aboutText {
+    margin-top: 19.6vh;
+    padding-left: 35px;
+    padding-right: 35px;
+    line-height: 24px;
+  }
+} 
