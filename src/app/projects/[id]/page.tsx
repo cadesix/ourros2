@@ -4,24 +4,14 @@ import styles from './project.module.css'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    id: project.id,
-  }))
-}
-
 interface PageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>
 }
 
-export default function Project({ params }: PageProps) {
-  const project = projects.find((p) => p.id === params.id)
-  
-  if (!project) {
-    notFound()
-  }
+export default async function Project({ params }: PageProps) {
+  const { id } = await params
+  const project = projects.find((p) => p.id === id)
+  if (!project) notFound()
 
   return (
     <main>
@@ -54,4 +44,10 @@ export default function Project({ params }: PageProps) {
       </div>
     </main>
   )
+}
+
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
+  }))
 } 
